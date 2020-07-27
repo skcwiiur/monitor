@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <a href="javascript:print_psend_multi_callBack();">dddd</a>
+        </div>
+        <div>
+            <form action="{:U('index/test')}" method="POST"  enctype="multipart/form-data">
+                <input type="file" name="test" accept="image/png,image/jpeg" />
+                <input type="submit" />
+            </form>
+        </div>
+    </body>
+    <OBJECT ID="LODOP" CLASSID="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" WIDTH=0  HEIGHT=0>
+        <param  name="Caption"  value="">
+        <param  name="Border"   value="1">
+        <param name="CompanyName" value="上海百胜软件">
+        <param name="License" value="452547275711905623562384719084">
+    </OBJECT>
+    <script language="JavaScript">
+        var LODOP = document.getElementById("LODOP");//这行语句是为了符合DTD规范
+        CheckLodop();
+        function CheckLodop() {
+            var oldVersion = LODOP.Version;
+            newVerion = "5.0.2.3";
+            if (oldVersion == null) {
+                document.write("<h3><font color='#FF00FF'>打印控件未安装!点击这里<a href='sources/install_lodop.exe'>执行安装</a>,安装后请刷新页面。</font></h3>");
+                if (navigator.appName == "Netscape")
+                    document.write("<h3><font color='#FF00FF'>（Firefox浏览器用户需先点击这里<a href='sources/npActiveXFirefox4x.xpi'>安装运行环境</a>）</font></h3>");
+            } else if (oldVersion < newVerion)
+                document.write("<h3><font color='#FF00FF'>打印控件需要升级!点击这里<a href='sources/install_lodop.exe'>执行升级</a>,升级后请重新进入。</font></h3>");
+
+        }
+
+        function print_psend_multi_callBack(result) {
+            LODOP.PRINT_INIT(0);
+            LODOP.SET_PRINT_PAGESIZE(0, "2mm", "2mm", "1");
+            var strStyle = "<style>body,td {font-size:14px;}</style>"
+            LODOP.ADD_PRINT_HTM("1mm", "1mm", "1333mm", "50mm", '3243424');
+            LODOP.SET_PRINT_STYLEA(0, "ItemType", 1);
+            LODOP.SET_PRINT_STYLEA(0, "LinkedItem", 1);
+            LODOP.ADD_PRINT_TABLE("40mm", "1mm", "1mm", "1mm",'23');
+            LODOP.SET_PRINT_STYLEA(0, "Vorient", 3);
+            LODOP.ADD_PRINT_HTM(1, 600, 300, 100, "总页号：<font color='#0000ff'><span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span></font>");
+            LODOP.SET_PRINT_STYLEA(0, "ItemType", 1);
+            LODOP.PRINT();
+
+        }
+    </script>
+</html>

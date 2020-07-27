@@ -1,0 +1,41 @@
+# OS X
+.DS_Store
+#.gitignore
+
+.svn
+.idea
+
+
+autogit.sh
+
+Public/RunTime/
+Public/Shaft/
+
+Public/*
+
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6418f0b455fc32e78b606aae7a5906133bf081a2
